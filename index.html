@@ -16,30 +16,39 @@
       flex-direction: column;
       justify-content: flex-start;
       align-items: center;
-      height: 100vh;
-      padding-top: 50px;
+      min-height: 100vh;
+      padding: 40px 20px;
+      box-sizing: border-box;
     }
+
     img.logo {
       max-width: 300px;
       height: auto;
     }
+
     h1 {
-      margin: 30px 0;
+      margin: 30px 0 20px;
       font-size: 2em;
       letter-spacing: 2px;
     }
+
     .icon-grid {
       display: grid;
-      grid-template-columns: repeat(3, 150px);
+      grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
       gap: 20px;
+      width: 100%;
+      max-width: 600px;
       margin-top: 30px;
     }
+
     .icon-grid img {
-      width: 150px;
-      height: 150px;
+      width: 100%;
+      max-width: 100px;
+      aspect-ratio: 1 / 1;
       border-radius: 12px;
       background-color: #ffffff22;
       object-fit: contain;
+      margin: 0 auto;
     }
   </style>
 </head>
