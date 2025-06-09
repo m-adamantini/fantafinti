@@ -27,9 +27,15 @@
     }
 
     h1 {
-      margin: 30px 0 20px;
+      margin: 30px 0 10px;
       font-size: 2em;
       letter-spacing: 2px;
+    }
+
+    #countdown {
+      font-size: 1.2em;
+      margin-bottom: 30px;
+      color: #ffcc00;
     }
 
     .icon-grid {
@@ -54,7 +60,8 @@
 </head>
 <body>
   <img class="logo" src="logo.png" alt="Fantafinti Logo">
-  <h1>Coming Soon...</h1>
+  <h1>Starts on 07-09-25</h1>
+  <div id="countdown">Loading countdown...</div>
 
   <div class="icon-grid">
     <img src="porcmund.jpg" alt="Team 1">
@@ -63,11 +70,35 @@
     <img src="mainz.jpg" alt="Team 4">
     <img src="partizan.jpg" alt="Team 5">
     <img src="porcellona.png" alt="Team 6">
-    <img src="sigriglia.png" alt="Team 6">
-    <img src="lasombras.jpg" alt="Team 7">
-    <img src="pennisi.png" alt="Team 8">
-    <img src="cityblinders.png" alt="Team 9">
+    <img src="sigriglia.png" alt="Team 7">
+    <img src="lasombras.jpg" alt="Team 8">
+    <img src="pennisi.png" alt="Team 9">
+    <img src="cityblinders.png" alt="Team 10">
   </div>
+
+  <script>
+    const countdownElement = document.getElementById("countdown");
+    const targetDate = new Date("2025-09-07T00:00:00");
+
+    function updateCountdown() {
+      const now = new Date();
+      const diff = targetDate - now;
+
+      if (diff <= 0) {
+        countdownElement.textContent = "Started!";
+        return;
+      }
+
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+      const minutes = Math.floor((diff / (1000 * 60)) % 60);
+      const seconds = Math.floor((diff / 1000) % 60);
+
+      countdownElement.textContent = `${days}d ${hours}h ${minutes}m ${seconds}s left`;
+    }
+
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+  </script>
 </body>
 </html>
-
