@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Fantafinti – Fantamister</title>
+  <style>
+    /* ---------- HEADER ---------- */
+    header {
+      width: 105%;
+      background-color: #0080ff;
+      padding: 5px 100px;
+      box-sizing: border-box;
+      position: fixed;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .header-content {
+      display: flex;
+      align-items: center;
+      gap: 40px;
+    }
+
+    .header-logo {
+      height: 120px;
+      object-fit: contain;
+    }
+
+    .nav-links a {
+      color: white;
+      text-decoration: none;
+      margin-left: 30px;
+      font-size: 1.4em;
+      transition: color 0.3s;
+    }
+
+    .nav-links a:hover {
+      color: #ffcc00;
+    }
+
+    /* ---------- BODY ---------- */
+    body {
+      margin: 0;
+      padding: 0 20px;
+      background-color: #ffffff;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+      box-sizing: border-box;
+    }
+
+    /* ---------- PAGE CONTENT ---------- */
+    .page-content {
+      margin-top: 150px;              /* spazio per header fisso */
+      width: 100%;
+      max-width: 2000px;
+    }
+
+    h1 {
+      margin-bottom: 60px;
+      font-size: 4.2em;
+      color: #0080ff;
+    }
+
+    /* ---------- CARD GRID ---------- */
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+      gap: 40px;
+      justify-content: center;
+      align-items: stretch;
+    }
+
+ .card {
+  background-color: #0080ff;
+  border-radius: 12px;
+  height: 350px;
+  padding: 20px;
+  color: white;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s;
+  text-align: center;
+  position: relative;
+}
+
+.card:hover {
+  transform: scale(1.03);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+.card .img-profilo {
+  width: 100%;
+  max-width: 180px;
+  aspect-ratio: 1 / 1;
+  object-fit: contain;
+  margin-bottom: 10px;
+}
+
+.card h1 {
+  font-size: 1.2em;
+  color: white;
+  margin-top: -10px;
+}
+
+.card .img-team {
+  width: 100%;
+  max-width: 100px;
+  aspect-ratio: 1 / 1;
+  object-fit: contain;
+  margin-top: 40px;
+  margin-left: 0px; /* Spostamento verso sinistra */
+  display: block;
+}
+
+.card p {
+  font-size: 1.2em;
+  margin: -50px 0 0;
+}
+  </style>
+</head>
+<body>
+
+  <!-- ---------- HEADER ---------- -->
+  <header>
+    <div class="header-content">
+      <a href="index.html">
+        <img src="varie/logo.png" alt="Fantafinti Logo" class="header-logo">
+      </a>
+      <nav class="nav-links">
+        <a href="team.html">TEAM</a>
+        <a href="fantamister.html">FANTAMISTER</a>
+        <a href="shop.html">SHOP</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ---------- MAIN CONTENT ---------- -->
+  <div class="page-content">
+    <h1>FANTAMISTER</h1>
+    <div class="card-grid">
+      <div class="card">
+        <img class="img-profilo" src="mister/Simo2.png" style="width: 180px; height: 180px; border-radius: 50%; object-fit: cover;" alt="Simone">
+        <h1>SIMONE</h1>
+        <img class="img-team" src="teams/porcmund.png" alt="Porcmund">
+        <p>Porcmund</p>
+      </div>
+      <div class="card">
+        <img class="img-profilo" src="mister/Grazza2.png" style="width: 180px; height: 180px; border-radius: 50%; object-fit: cover;" alt="Grazza">
+        <h1>GRAZZA</h1>
+        <img class="img-team" src="teams/tettenam.png" alt="Tettenam">
+        <p>Tettenam</p>
+      </div>
+      <div class="card">
+        <img class="img-profilo" src="mister/papa2.png" style="width: 180px; height: 180px; border-radius: 50%; object-fit: cover;" alt="Papa">
+        <h1>THE POPE </h1>
+        <img class="img-team" src="teams/ener.png" alt="Ener">
+        <p>Ener</p>
+      </div>
+      <div class="card">
+        <img class="img-profilo" src="mister/Fuso2.png" style="width: 180px; height: 180px; border-radius: 50%; object-fit: cover;" alt="Fuso">
+        <h1>FUSO</h1>
+        <img class="img-team" src="teams/mainz.png" alt="Mainz">
+        <p>Mainz</p>
+      </div>
+      <div class="card">
+        <img class="img-profilo" src="mister/Gabry2.png" style="width: 180px; height: 180px; border-radius: 50%; object-fit: cover;" alt="Gabry">
+        <h1>GABRY</h1>
+        <img class="img-team" src="teams/partizan.png" alt="Partizan">
+        <p>Partizan</p>
+      </div>
+      <div class="card">
+        <img class="img-profilo" src="mister/Pilo2.png" style="width: 180px; height: 180px; border-radius: 50%; object-fit: cover;" alt="Pilo">
+        <h1>PILO</h1>
+        <img class="img-team" src="teams/porcellona.png" alt="Porcellona">
+        <p>Porcellona</p>
+      </div>
+      <div class="card">
+        <img class="img-profilo" src="mister/Roccia2.png" style="width: 180px; height: 180px; border-radius: 50%; object-fit: cover;" alt="Roccia">
+        <h1>ROCCIA</h1>
+        <img class="img-team" src="teams/sigriglia.png" alt="Sigriglia">
+        <p>Sigriglia</p>
+      </div>
+      <div class="card">
+        <img class="img-profilo" src="mister/Loca2.png" style="width: 180px; height: 180px; border-radius: 50%; object-fit: cover;" alt="Loca">
+        <h1>LOCA</h1>
+        <img class="img-team" src="teams/lasombras.png" alt="La Sombras">
+        <p>La Sombras</p>
+      </div>
+      <div class="card">
+        <img class="img-profilo" src="mister/Penna2.png" style="width: 180px; height: 180px; border-radius: 50%; object-fit: cover;" alt="Penna">
+        <h1>PENNA</h1>
+        <img class="img-team" src="teams/pennisi.png" alt="Pennisi">
+        <p>Pennisi</p>
+      </div>
+      <div class="card">
+        <img class="img-profilo" src="mister/Bastia2.png" style="width: 180px; height: 180px; border-radius: 50%; object-fit: cover;" alt="Bastia">
+        <h1>BASTIA</h1>
+        <img class="img-team" src="teams/cityblinders.png" alt="City Blinders">
+        <p>City Blinders</p>
+      </div>
+
+        <div class="card">
+        <img class="img-profilo" src="mister/Tona2.png" style="width: 180px; height: 180px; border-radius: 50%; object-fit: cover;" alt="Tona">
+        <h1>TONA</h1>
+        <p>Fantastory</p>
+      </div>
+        <div class="card">
+        <img class="img-profilo" src="mister/tortina.jpg" style="width: 180px; height: 180px; border-radius: 50%; object-fit: cover;" alt="Tortina">
+        <h1>GIO TORTINA</h1>        
+        <p>Fantastory</p>
+      </div>
+
+        <div class="card">
+        <img class="img-profilo" src="mister/napoli.png" style="width: 180px; height: 180px; border-radius: 50%; object-fit: cover;" alt="Tortina">
+        <h1>IRGOLIOUT</h1>        
+        <p>Fantastory</p>
+      </div>
+
+    </div>
+  </div>
+
+</body>
+</html>

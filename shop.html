@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Fantafinti – Shop</title>
+  <style>
+    header {
+      width: 105%;
+      background-color: #bcca37;
+      padding: 5px 100px;
+      box-sizing: border-box;
+      position: fixed;
+      top: 0;
+    }
+
+    .header-content {
+      display: flex;
+      align-items: center;
+      gap: 40px;
+    }
+
+    .header-logo {
+      height: 120px;
+      object-fit: contain;
+    }
+
+    .nav-links a {
+      color: white;
+      text-decoration: none;
+      margin-left: 30px;
+      font-size: 1.4em;
+      transition: color 0.3s;
+    }
+
+    .nav-links a:hover {
+      color: #0e5be0;
+    }
+
+    body {
+      margin: 0;
+      padding: 0 20px;
+      background-color: #c7d22e;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+      box-sizing: border-box;
+    }
+
+    .shop-banner {
+      margin-top: 150px; /* spazio per l'header fisso */
+      max-width: 800px;
+      width: 100%;
+      border-radius: 0px;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    .shop-banner img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="header-content">
+      <a href="index.html">
+        <img src="varie/logo.png" alt="Fantafinti Logo" class="header-logo">
+      </a>
+      <nav class="nav-links">
+        <a href="team.html">TEAM</a>
+        <a href="fantamister.html">FANTAMISTER</a>
+        <a href="shop.html">SHOP</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="shop-banner">
+    <img src="varie/shop-banner.jpg" alt="Fantafinti Shop Banner">
+  </div>
+
+</body>
+</html>
