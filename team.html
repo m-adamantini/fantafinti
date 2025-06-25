@@ -7,7 +7,7 @@
   <style>
 
     header {
-  width: 105%;
+  width: 100%;
   background-color: #0080ff;
   padding: 5px 100px;
   box-sizing: border-box;
@@ -90,6 +90,55 @@
       padding: 40px 0px;
       box-shadow: 0 0px 0px rgba(0,0,0,0.1);
     }
+
+
+    @media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    padding: 5px 0px;
+  }
+
+  .header-content {
+    flex-direction: column;
+    gap: 0px;
+  }
+
+  .header-logo {
+    height: 100px;
+  }
+
+  .nav-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .nav-links a {
+    margin: 10px;
+    font-size: 1.2em;
+  }
+
+  .coming-box {
+    margin-top: 200px;
+    height: auto;
+    padding: 0 00px 00px;
+  }
+
+  h1 {
+    font-size: 1.6em;
+    margin-bottom: 30px;
+  }
+
+  .icon-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+  }
+
+  .icon-grid img {
+    max-width: 80px;
+    padding: 10px 10px;
+  }
+}
   </style>
 </head>
 <body>
