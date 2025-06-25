@@ -8,7 +8,7 @@
 
 
   header {
-  width: 105%;
+  width: 100%;
   background-color:#0080ff;
   padding: 5px 100px;
   box-sizing: border-box;
@@ -151,7 +151,144 @@
 }
 
 
+
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    padding: 5px 0px;
+  }
+
+  .header-content {
+    flex-direction: column;
+    gap: 00px;
+  }
+
+  .header-logo {
+    height: 100px;
+  }
+
+  .nav-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .nav-links a {
+    margin: 15px;
+    font-size: 1.3em;
+  }
+
+      .coming-box {    
+  margin-top: 200px; 
+  padding: 0px 20px;
+  border-radius: 0px;
+  text-align: center;
+  max-width: 300px;
+  height: auto;
+  width: 100%;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+
+  .coming-content {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .coming-content .left {
+    min-width: unset;
+    width: 100%;
+    margin-top: 20px;
+  }
+
+.coming-content .left h1,
+.coming-content .left h2 {
+  margin: 0 0 20px;
+  font-size: 1.5em;
+}
+
+.coming-content .left #countdown {
+  font-size: 1.5em;
+  color: #ffe928;
+}
+
+.coming-content .right {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: #4ba5ff;
+  min-width: 300px;
+  min-height: 350px;
+  max-height: 350px;
+  margin: 20px 0 10px 0;
+  overflow: hidden;
+}
+
+
+.big-logo {
+  width: 60%;
+  height: auto;
+  margin: 0;
+  margin-top: -50px;
+}
+
+.progress-container {
+  position: absolute;
+  bottom: 30px; /* distanza dalla base */
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background-color: #ffffff50;
+  border-radius: 0px;
+  overflow: hidden;
+}
+
+
+.progress-bar {
+  height: 100%;
+  width: 0%;
+  background-color: #ffe928;
+  transition: none;
+}
+
+.dots {
+  position: absolute;
+  bottom: -5px; /* 10px sotto la barra */
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.dot {
+  width: 12px;
+  height: 12px;
+  background-color: #ffffff;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0s ease;
+}
+
+.dot.active {
+  width: 18px;
+  height: 18px;
+  background-color: #ffe928;
+}
+
+
+
+
+}
+
+
   </style>
+
+
+
+
 </head>
 <body>
 
@@ -287,3 +424,4 @@
 </script>
 </body>
 </html>
+
