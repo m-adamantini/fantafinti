@@ -16,90 +16,185 @@
       z-index: 1000;
     }
 
-    .header-content { display: flex; align-items: center; gap: 40px; }
-    .header-logo { height: 120px; object-fit: contain; }
+    .header-content {
+      display: flex;
+      align-items: center;
+      gap: 40px;
+    }
+
+    .header-logo {
+      height: 120px;
+      object-fit: contain;
+    }
 
     .nav-links a {
-      color: white; text-decoration: none; margin-left: 30px; font-size: 1.4em; transition: color 0.3s;
+      color: white;
+      text-decoration: none;
+      margin-left: 30px;
+      font-size: 1.4em;
+      transition: color 0.3s;
     }
-    .nav-links a:hover { color: #ffcc00; }
+
+    .nav-links a:hover {
+      color: #ffcc00;
+    }
 
     /* ---------- BODY ---------- */
     body {
-      margin: 0; padding: 0 20px; background-color: #ffffff; font-family: Arial, sans-serif;
-      text-align: center; display: flex; flex-direction: column; align-items: center;
-      min-height: 100vh; box-sizing: border-box;
+      margin: 0;
+      padding: 0 20px;
+      background-color: #ffffff;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+      box-sizing: border-box;
     }
 
     /* ---------- PAGE CONTENT ---------- */
-    .page-content { margin-top: 150px; width: 100%; max-width: 2000px; }
-    h1 { margin-bottom: 60px; font-size: 4.2em; color: #0080ff; }
+    .page-content {
+      margin-top: 150px;              /* spazio per header fisso */
+      width: 100%;
+      max-width: 2000px;
+    }
+
+    h1 {
+      margin-bottom: 60px;
+      font-size: 4.2em;
+      color: #0080ff;
+    }
 
     /* ---------- CARD GRID ---------- */
     .card-grid {
-      display: grid; grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-      gap: 40px; justify-content: center; align-items: stretch;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+      gap: 40px;
+      justify-content: center;
+      align-items: stretch;
     }
 
-    .card {
-      background-color: #0080ff; border-radius: 12px; height: 350px; padding: 20px; color: white;
-      box-shadow: 0 4px 12px rgba(0,0,0,.2); transition: transform .2s; text-align: center; position: relative;
-    }
-    .card:hover { transform: scale(1.03); box-shadow: 0 8px 20px rgba(0,0,0,.3); }
+ .card {
+  background-color: #0080ff;
+  border-radius: 12px;
+  height: 350px;
+  padding: 20px;
+  color: white;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s;
+  text-align: center;
+  position: relative;
+}
 
-    .card .img-profilo {
-      width: 100%; max-width: 180px; aspect-ratio: 1/1; object-fit: cover; border-radius: 50%; margin-bottom: 10px;
-    }
-    .card h1 { font-size: 1.2em; color: white; margin-top: -10px; }
-    .card .img-team { width: 100%; max-width: 100px; aspect-ratio: 1/1; object-fit: contain; margin-top: 40px; display: block; }
-    .card p { font-size: 1.2em; margin: -50px 0 0; }
+.card:hover {
+  transform: scale(1.03);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
 
-    /* --- NOTE UI --- */
-    .note-btn {
-      position: absolute; right: 10px; bottom: 10px;
-      background: #ffcc00; color: #003; border: 0; border-radius: 8px;
-      padding: 6px 10px; font-weight: 700; cursor: pointer;
-    }
-    .note-btn:hover { filter: brightness(0.95); }
+.card .img-profilo {
+  width: 100%;
+  max-width: 180px;
+  aspect-ratio: 1 / 1;
+  object-fit: contain;
+  margin-bottom: 10px;
+}
 
-    .note-modal-backdrop {
-      position: fixed; inset: 0; background: rgba(0,0,0,.5);
-      display: none; align-items: center; justify-content: center; z-index: 2000;
-    }
-    .note-modal {
-      background: #fff; max-width: 720px; width: 92%;
-      border-radius: 12px; padding: 16px; box-shadow: 0 10px 30px rgba(0,0,0,.3);
-    }
-    .note-modal h3 { margin: 0 0 8px; }
-    .note-modal .viewer { white-space: pre-wrap; border: 1px solid #ddd; border-radius: 8px; padding: 12px; min-height: 140px; }
-    .note-modal .editor { display: none; flex-direction: column; gap: 8px; }
-    .note-modal textarea { width: 100%; min-height: 160px; }
-    .note-modal .row { display: flex; gap: 8px; justify-content: flex-end; margin-top: 8px; }
-    .note-modal .close { background:#eee; border:0; border-radius:8px; padding:8px 12px; cursor:pointer; }
-    .note-modal .save  { background:#0080ff; color:#fff; border:0; border-radius:8px; padding:8px 12px; cursor:pointer; }
+.card h1 {
+  font-size: 1.2em;
+  color: white;
+  margin-top: -10px;
+}
 
-    .admin-panel { margin: 24px 0; border: 1px dashed #bbb; border-radius: 12px; padding: 12px; }
-    .admin-panel input { padding: 6px 10px; }
-    .admin-panel button { padding: 6px 10px; }
-    .admin-panel .muted { color: #666; font-size: .9em; margin-left: 8px; }
+.card .img-team {
+  width: 100%;
+  max-width: 100px;
+  aspect-ratio: 1 / 1;
+  object-fit: contain;
+  margin-top: 40px;
+  margin-left: 0px; /* Spostamento verso sinistra */
+  display: block;
+}
 
-    @media (max-width: 768px) {
-      header { flex-direction: column; padding: 5px 0; }
-      .header-content { flex-direction: column; gap: 0; }
-      .header-logo { height: 100px; }
-      .nav-links { display: flex; flex-wrap: wrap; justify-content: center; }
-      .nav-links a { margin: 10px; font-size: 1.2em; }
+.card p {
+  font-size: 1.2em;
+  margin: -50px 0 0;
+}
 
-      .page-content { margin-top: 150px; padding: 0; }
-      h1 { font-size: 2em; margin-bottom: 30px; }
 
-      .card-grid { grid-template-columns: repeat(2, 1fr); gap: 20px; }
-      .card { height: 200px; padding: 15px; }
-      .card h1 { font-size: 1em; margin-top: 5px; }
-      .card p { font-size: 1em; margin-top: -50px; margin-left: 40px; }
-      .card .img-profilo { max-width: 100px; max-height: 100px; margin-bottom: 0; }
-      .card .img-team { max-height: 60px; margin-top: -20px; margin-bottom: 10px; margin-left:-30px; }
-    }
+
+
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    padding: 5px 0px;
+  }
+
+  .header-content {
+    flex-direction: column;
+    gap: 0px;
+  }
+
+  .header-logo {
+    height: 100px;
+  }
+
+  .nav-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .nav-links a {
+    margin: 10px;
+    font-size: 1.2em;
+  }
+
+
+  .page-content {
+    margin-top: 150px;
+    padding: 0;
+  }
+
+  h1 {
+    font-size: 2em;
+    margin-bottom: 30px;
+  }
+
+  .card-grid {
+    grid-template-columns: repeat(2, 1fr); /* Una colonna per schermi piccoli */
+    gap: 20px;
+  }
+
+  .card {
+    height: 200px;
+    padding: 15px;
+  }
+
+  .card h1 {
+    font-size: 1em;
+    margin-top: 5px;
+  }
+
+  .card p {
+    font-size: 1em;
+    margin-top: -50px;
+    margin-left: 40px;
+  }
+
+  .card .img-profilo {
+    max-width: 100px;
+    max-height: 100px;
+    margin-bottom: 00px;
+  }
+
+  .card .img-team {
+    max-height: 60px;
+    margin-top: -20px;
+    margin-bottom: 10px;
+    margin-left:-30px;
+  }
+}
   </style>
 </head>
 <body>
@@ -107,11 +202,14 @@
   <!-- ---------- HEADER ---------- -->
   <header>
     <div class="header-content">
-      <a href="index.html"><img src="varie/logo.png" alt="Fantafinti Logo" class="header-logo"></a>
+      <a href="index.html">
+        <img src="varie/logo.png" alt="Fantafinti Logo" class="header-logo">
+      </a>
       <nav class="nav-links">
         <a href="team.html">TEAM</a>
         <a href="fantamister.html">FANTAMISTER</a>
         <a href="shop.html">SHOP</a>
+         <a href="admin.html">ADMIN</a> 
       </nav>
     </div>
   </header>
@@ -120,134 +218,185 @@
   <div class="page-content">
     <h1>FANTAMISTER</h1>
     <div class="card-grid">
-      <!-- (le tue card, invariate) -->
-      <!-- ... -->
-    </div>
-  </div>
-
-  <!-- Modal Note (ORA NEL BODY, non nello style) -->
-  <div id="noteBackdrop" class="note-modal-backdrop" aria-hidden="true">
-    <div class="note-modal" role="dialog" aria-modal="true">
-      <h3 id="noteTitle">Nota</h3>
-      <div id="noteView" class="viewer"></div>
-      <div id="noteEdit" class="editor">
-        <textarea id="noteTextarea" placeholder="Scrivi la nota…"></textarea>
-        <div class="row">
-          <button id="noteSave" class="save">💾 Salva</button>
-          <button id="noteCancel" class="close">Annulla</button>
-        </div>
+      <div class="card">
+        <img class="img-profilo" src="mister/Simo2.png" style="width: 180px; height: 180px; border-radius: 50%; object-fit: cover;" alt="Brune">
+        <h1>BRUNE</h1>
+        <img class="img-team" src="teams/porcmund.png" alt="Porcmund">
+        <p>Porcmund</p>
       </div>
-      <div class="row"><button id="noteClose" class="close">Chiudi</button></div>
+      <div class="card">
+        <img class="img-profilo" src="mister/Grazza2.png" style="width: 180px; height: 180px; border-radius: 50%; object-fit: cover;" alt="Grazza">
+        <h1>GRAZZA</h1>
+        <img class="img-team" src="teams/tettenam.png" alt="Tettenam">
+        <p>Tettenam</p>
+      </div>
+      <div class="card">
+        <img class="img-profilo" src="mister/Papa2.png" style="width: 180px; height: 180px; border-radius: 50%; object-fit: cover;" alt="Papa">
+        <h1>THE POPE </h1>
+        <img class="img-team" src="teams/ener.png" alt="Ener">
+        <p>Ener</p>
+      </div>
+      <div class="card">
+        <img class="img-profilo" src="mister/Fuso2.png" style="width: 180px; height: 180px; border-radius: 50%; object-fit: cover;" alt="Fuso">
+        <h1>FUSO</h1>
+        <img class="img-team" src="teams/mainz.png" alt="Mainz">
+        <p>Mainz</p>
+      </div>
+      <div class="card">
+        <img class="img-profilo" src="mister/Gabry2.png" style="width: 180px; height: 180px; border-radius: 50%; object-fit: cover;" alt="Gabry">
+        <h1>GABRY</h1>
+        <img class="img-team" src="teams/partizan.png" alt="Partizan">
+        <p>Partizan</p>
+      </div>
+      <div class="card">
+        <img class="img-profilo" src="mister/Pilo2.png" style="width: 180px; height: 180px; border-radius: 50%; object-fit: cover;" alt="Pilo">
+        <h1>PILO</h1>
+        <img class="img-team" src="teams/porcellona.png" alt="Porcellona">
+        <p>Porcellona</p>
+      </div>
+      <div class="card">
+        <img class="img-profilo" src="mister/Roccia2.png" style="width: 180px; height: 180px; border-radius: 50%; object-fit: cover;" alt="Roccia">
+        <h1>ROCCIA</h1>
+        <img class="img-team" src="teams/sigriglia.png" alt="Sigriglia">
+        <p>Sigriglia</p>
+      </div>
+      <div class="card">
+        <img class="img-profilo" src="mister/Loca2.png" style="width: 180px; height: 180px; border-radius: 50%; object-fit: cover;" alt="Loca">
+        <h1>LOCA</h1>
+        <img class="img-team" src="teams/lasombras.png" alt="La Sombras">
+        <p>La Sombras</p>
+      </div>
+      <div class="card">
+        <img class="img-profilo" src="mister/Penna2.png" style="width: 180px; height: 180px; border-radius: 50%; object-fit: cover;" alt="Penna">
+        <h1>PENNA</h1>
+        <img class="img-team" src="teams/pennisi.png" alt="Pennisi">
+        <p>Pennisi</p>
+      </div>
+      <div class="card">
+        <img class="img-profilo" src="mister/Bastia2.png" style="width: 180px; height: 180px; border-radius: 50%; object-fit: cover;" alt="Bastia">
+        <h1>BASTIA</h1>
+        <img class="img-team" src="teams/cityblinders.png" alt="City Blinders">
+        <p>City Blinders</p>
+      </div>
+
+        <div class="card">
+        <img class="img-profilo" src="mister/Tona2.png" style="width: 180px; height: 180px; border-radius: 50%; object-fit: cover;" alt="Tona">
+        <h1>TONA</h1>
+        <img class="img-team" src="teams/no-team.png" alt="No-Team">
+        <p>Fantastory</p>
+      </div>
+        <div class="card">
+        <img class="img-profilo" src="mister/tortina.jpg" style="width: 180px; height: 180px; border-radius: 50%; object-fit: cover;" alt="Tortina">
+        <h1>GIO TORTINA</h1> 
+        <img class="img-team" src="teams/no-team.png" alt="No-Team">       
+        <p>Fantastory</p>
+      </div>
+
+        <div class="card">
+        <img class="img-profilo" src="mister/napoli.png" style="width: 180px; height: 180px; border-radius: 50%; object-fit: cover;" alt="Tortina">
+        <h1>IRGOLIOUT</h1>  
+        <img class="img-team" src="teams/no-team.png" alt="No-Team">      
+        <p>Fantastory</p>
+      </div>
+
     </div>
   </div>
 
-  <!-- Pannello Admin (login) -->
-  <div class="admin-panel">
-    <strong>🔐 Admin</strong>
-    <input id="admUser" placeholder="Username" autocomplete="username">
-    <input id="admPass" placeholder="Password" type="password" autocomplete="current-password">
-    <button id="admLogin">Accedi</button>
-    <span id="admMsg" class="muted"></span>
-  </div>
-
-  <script>
-  const API = "/api/notes";
-  const $ = (s, r=document) => r.querySelector(s);
-  const $$ = (s, r=document) => [...r.querySelectorAll(s)];
-
-  let notes = {};
-  let authHeader = null;
-  let currentId = null;
-
-  const backdrop = $("#noteBackdrop");
-  const titleEl  = $("#noteTitle");
-  const viewEl   = $("#noteView");
-  const editBox  = $("#noteEdit");
-  const ta       = $("#noteTextarea");
-  const btnSave  = $("#noteSave");
-  const btnCancel= $("#noteCancel");
-  const btnClose = $("#noteClose");
-
-  const admUser  = $("#admUser");
-  const admPass  = $("#admPass");
-  const admLogin = $("#admLogin");
-  const admMsg   = $("#admMsg");
-
-  async function loadNotes() {
-    const r = await fetch(API, { cache: "no-store" });
-    const data = await r.json();
-    notes = data.notes || {};
-  }
-
-  function slugify(s) {
-    return s.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[^a-z0-9]+/g,'-').replace(/(^-|-$)/g,'');
-  }
-  function attachButtons() {
-    $$(".card-grid .card").forEach(card => {
-      const nameEl = card.querySelector("h1");
-      const id = nameEl ? slugify(nameEl.textContent.trim()) : crypto.randomUUID();
-      card.dataset.noteId = id;
-
-      if (!card.querySelector(".note-btn")) {
-        const btn = document.createElement("button");
-        btn.className = "note-btn";
-        btn.textContent = "📝";
-        btn.title = "Apri nota";
-        btn.onclick = () => openModal(id, nameEl ? nameEl.textContent.trim() : id);
-        card.appendChild(btn);
-      }
-    });
-  }
-
-  function openModal(id, label) {
-    currentId = id;
-    titleEl.textContent = "Nota – " + label;
-    const txt = notes[id] || "—";
-    viewEl.textContent = txt;
-    ta.value = txt;
-    editBox.style.display = authHeader ? "flex" : "none";
-    backdrop.style.display = "flex";
-  }
-  function closeModal() { currentId = null; backdrop.style.display = "none"; }
-  btnClose.onclick = closeModal;
-  btnCancel.onclick = closeModal;
-  backdrop.addEventListener("click", (e) => { if (e.target === backdrop) closeModal(); });
-
-  function basic(u,p){ return "Basic " + btoa(`${u}:${p}`); }
-  admLogin.onclick = async () => {
-    admMsg.textContent = "";
-    const u = admUser.value.trim(), p = admPass.value;
-    if (!u || !p) { admMsg.textContent = "Inserisci credenziali."; return; }
-    try {
-      const r = await fetch(API, {
-        method: "POST",
-        headers: { "Content-Type":"application/json", "Authorization": basic(u,p) },
-        body: JSON.stringify({ notes })
-      });
-      if (r.ok) { authHeader = basic(u,p); admMsg.textContent = "Accesso OK."; if (currentId) editBox.style.display = "flex"; }
-      else { authHeader = null; admMsg.textContent = "Credenziali errate."; }
-    } catch { admMsg.textContent = "Errore rete."; }
-  };
-
-  btnSave.onclick = async () => {
-    if (!authHeader) { admMsg.textContent = "Non sei loggato."; return; }
-    if (!currentId) return;
-    const content = ta.value;
-    try {
-      const r = await fetch(API, {
-        method: "POST",
-        headers: { "Content-Type":"application/json", "Authorization": authHeader },
-        body: JSON.stringify({ id: currentId, content })
-      });
-      if (r.ok) {
-        notes[currentId] = content;
-        viewEl.textContent = content;
-        admMsg.textContent = "Salvato.";
-      } else { admMsg.textContent = "Non autorizzato."; }
-    } catch { admMsg.textContent = "Errore rete."; }
-  };
-
-  (async () => { await loadNotes(); attachButtons(); })();
-  </script>
 </body>
 </html>
+
+<script>
+const API = "/api/notes";
+const AUTH_KEY = 'fantafinti_auth';
+
+const $ = (s, r=document) => r.querySelector(s);
+const $$ = (s, r=document) => [...r.querySelectorAll(s)];
+
+let notes = {};               // { id: content }
+let currentId = null;         // id card aperta nel modal
+
+const backdrop = $("#noteBackdrop");
+const titleEl  = $("#noteTitle");
+const viewEl   = $("#noteView");
+const editBox  = $("#noteEdit");
+const ta       = $("#noteTextarea");
+const btnSave  = $("#noteSave");
+const btnCancel= $("#noteCancel");
+const btnClose = $("#noteClose");
+
+function isLogged(){ return !!sessionStorage.getItem(AUTH_KEY); }
+function authHeader(){ return sessionStorage.getItem(AUTH_KEY) || ""; }
+
+// 1) carico note dal backend
+async function loadNotes() {
+  const r = await fetch(API, { cache: "no-store" });
+  const data = await r.json();
+  notes = data.notes || {};
+}
+
+// 2) genera bottone 📝 su ogni card e id derivato dall'<h1>
+function slugify(s) {
+  return s.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[^a-z0-9]+/g,'-').replace(/(^-|-$)/g,'');
+}
+function attachButtons() {
+  $$(".card-grid .card").forEach(card => {
+    const nameEl = card.querySelector("h1");
+    const id = nameEl ? slugify(nameEl.textContent.trim()) : crypto.randomUUID();
+    card.dataset.noteId = id;
+    if (!card.querySelector(".note-btn")) {
+      const btn = document.createElement("button");
+      btn.className = "note-btn";
+      btn.textContent = "📝";
+      btn.title = "Apri nota";
+      btn.onclick = () => openModal(id, nameEl ? nameEl.textContent.trim() : id);
+      card.appendChild(btn);
+    }
+  });
+}
+
+// 3) Modal open/close
+function openModal(id, label) {
+  currentId = id;
+  titleEl.textContent = "Nota – " + label;
+  const txt = notes[id] || "—";
+  viewEl.textContent = txt;
+  ta.value = txt;
+  editBox.style.display = isLogged() ? "flex" : "none"; // editor visibile solo se loggato
+  backdrop.style.display = "flex";
+}
+function closeModal() {
+  currentId = null;
+  backdrop.style.display = "none";
+}
+btnClose.onclick = closeModal;
+btnCancel.onclick = closeModal;
+backdrop.addEventListener("click", (e) => { if (e.target === backdrop) closeModal(); });
+
+// 4) Salvataggio (update singolo: {id, content}) – richiede login
+btnSave.onclick = async () => {
+  if (!isLogged()) { alert("Non sei loggato. Vai su ADMIN."); return; }
+  if (!currentId) return;
+  const content = ta.value;
+  try {
+    const r = await fetch(API, {
+      method: "POST",
+      headers: { "Content-Type":"application/json", "Authorization": authHeader() },
+      body: JSON.stringify({ id: currentId, content })
+    });
+    if (r.ok) {
+      notes[currentId] = content;
+      viewEl.textContent = content;
+      alert("Salvato.");
+    } else {
+      alert("Non autorizzato.");
+    }
+  } catch {
+    alert("Errore rete.");
+  }
+};
+
+// bootstrap
+(async () => { await loadNotes(); attachButtons(); })();
+</script>
+
+
