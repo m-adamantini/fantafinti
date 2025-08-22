@@ -195,6 +195,33 @@
     margin-left:-30px;
   }
 }
+
+/* --- NOTE UI --- */
+.note-btn{
+  position:absolute; right:10px; bottom:10px;
+  background:#ffcc00; color:#003; border:0; border-radius:8px;
+  padding:6px 10px; font-weight:700; cursor:pointer;
+}
+.note-btn:hover{ filter:brightness(0.95); }
+
+.note-modal-backdrop{
+  position:fixed; inset:0; background:rgba(0,0,0,.5);
+  display:none; align-items:center; justify-content:center; z-index:2000;
+}
+.note-modal{
+  background:#fff; max-width:720px; width:92%;
+  border-radius:12px; padding:16px; box-shadow:0 10px 30px rgba(0,0,0,.3);
+}
+.note-modal h3{ margin:0 0 8px; }
+.note-modal .viewer{
+  white-space:pre-wrap; border:1px solid #ddd; border-radius:8px; padding:12px; min-height:140px;
+}
+.note-modal .editor{ display:none; flex-direction:column; gap:8px; }
+.note-modal textarea{ width:100%; min-height:160px; }
+.note-modal .row{ display:flex; gap:8px; justify-content:flex-end; margin-top:8px; }
+.note-modal .close{ background:#eee; border:0; border-radius:8px; padding:8px 12px; cursor:pointer; }
+.note-modal .save{  background:#0080ff; color:#fff; border:0; border-radius:8px; padding:8px 12px; cursor:pointer; }
+
   </style>
 </head>
 <body>
@@ -302,10 +329,26 @@
     </div>
   </div>
 
-</body>
-</html>
+  <!-- Modal Note -->
+<div id="noteBackdrop" class="note-modal-backdrop" aria-hidden="true">
+  <div class="note-modal" role="dialog" aria-modal="true">
+    <h3 id="noteTitle">Nota</h3>
+    <div id="noteView" class="viewer"></div>
+    <div id="noteEdit" class="editor">
+      <textarea id="noteTextarea" placeholder="Scrivi la nota…"></textarea>
+      <div class="row">
+        <button id="noteSave" class="save">💾 Salva</button>
+        <button id="noteCancel" class="close">Annulla</button>
+      </div>
+    </div>
+    <div class="row">
+      <button id="noteClose" class="close">Chiudi</button>
+    </div>
+  </div>
+</div>
 
-<script>
+
+  <script>
 const API = "/api/notes";
 const AUTH_KEY = 'fantafinti_auth';
 
@@ -398,5 +441,10 @@ btnSave.onclick = async () => {
 // bootstrap
 (async () => { await loadNotes(); attachButtons(); })();
 </script>
+
+
+</body>
+</html>
+
 
 
