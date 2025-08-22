@@ -20,12 +20,12 @@ export default {
         return new Response(json || JSON.stringify(empty), { headers: { "Content-Type":"application/json", ...cors }});
       }
 
-      if (request.method === "POST") {
-        // Basic Auth
-        const auth = request.headers.get("authorization") || "";
-        if (!checkBasic(auth, env.EDITOR_USER, env.EDITOR_PASS)) {
-          return new Response("Unauthorized", { status: 401, headers: { ...cors, "WWW-Authenticate": "Basic realm=\"notes\"" }});
-        }
+if (request.method === "POST") {
+      const auth = request.headers.get("authorization") || "";
+      const ok = checkBasic(auth, (env.EDITOR_USER || "").trim(), (env.EDITOR_PASS || "").trim());
+      if (!ok) {
+        return new Response("Unauthorized", { status: 401, headers: { ...cors, "WWW-Authenticate": 'Basic realm="notes"' }});
+      }
 
         let body = {};
         try { body = await request.json(); } catch {}
@@ -59,11 +59,16 @@ export default {
   }
 };
 
-function checkBasic(header, user, pass) {
-  if (!header?.startsWith("Basic ")) return false;
+function checkBasic(header, expectedUser, expectedPass) {
+  if (!header.startsWith("Basic ")) return false;
   try {
     const decoded = atob(header.slice(6));
-    const [u, p] = decoded.split(":");
-    return u === user && p === pass;
-  } catch { return false; }
+    const idx = decoded.indexOf(":");
+    if (idx === -1) return false;
+    const user = decoded.slice(0, idx);
+    const pass = decoded.slice(idx + 1); // il resto, anche se contiene altri ':'
+    return user === expectedUser && pass === expectedPass;
+  } catch {
+    return false;
+  }
 }
