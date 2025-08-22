@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Fantafinti – Admin</title>
+  <style>
+    body{font-family:system-ui,Arial,sans-serif;margin:0}
+    header{width:100%;background:#0080ff;color:#fff;position:sticky;top:0}
+    .inner{padding:12px 24px;display:flex;gap:24px;align-items:center}
+    .inner a{color:#fff;text-decoration:none;font-weight:600}
+    .wrap{max-width:900px;margin:32px auto;padding:0 16px}
+    .card{border:1px solid #ddd;border-radius:12px;padding:16px}
+    .row{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+    input,button{font:inherit;padding:8px 12px}
+    .muted{color:#666}
+    .ok{color:#0a7a2f;font-weight:600}
+    .err{color:#b00020;font-weight:600}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="inner">
+      <a href="index.html">HOME</a>
+      <a href="team.html">TEAM</a>
+      <a href="fantamister.html">FANTAMISTER</a>
+      <span style="margin-left:auto;font-weight:700">Area Admin</span>
+    </div>
+  </header>
+
+  <div class="wrap">
+    <h1>Admin</h1>
+    <div class="card">
+      <p class="muted">Accedi per poter modificare le note in <b>FANTAMISTER</b>. Il login resta valido finché tieni aperto il browser (sessione).</p>
+      <div class="row" style="margin:12px 0">
+        <input id="user" placeholder="Username" autocomplete="username">
+        <input id="pass" placeholder="Password" type="password" autocomplete="current-password">
+        <button id="login">Accedi</button>
+        <button id="logout" style="margin-left:8px">Esci</button>
+        <span id="msg" class="muted"></span>
+      </div>
+      <p class="muted">Dopo il login, vai su <a href="fantamister.html">FANTAMISTER</a> e clicca 📝 su una card per modificare la nota.</p>
+    </div>
+  </div>
+
+  <script>
+  const API = "/api/notes";
+  const userI = document.getElementById('user');
+  const passI = document.getElementById('pass');
+  const loginBtn = document.getElementById('login');
+  const logoutBtn= document.getElementById('logout');
+  const msg = document.getElementById('msg');
+
+  const AUTH_KEY = 'fantafinti_auth'; // token in sessione
+
+  function basic(u,p){ return "Basic " + btoa(`${u}:${p}`); }
+
+  function setMsg(text, ok=null){
+    msg.textContent = text;
+    msg.className = ok===true ? 'ok' : ok===false ? 'err' : 'muted';
+  }
+
+  // Mostra stato corrente
+  (function init(){
+    if (sessionStorage.getItem(AUTH_KEY)) {
+      setMsg("Sei già loggato. Vai su FANTAMISTER per modificare.", true);
+    } else {
+      setMsg("Non loggato.");
+    }
+  })();
+
+  loginBtn.onclick = async () => {
+    setMsg("Verifico credenziali…");
+    const u = userI.value.trim(), p = passI.value;
+    if (!u || !p) { setMsg("Inserisci credenziali.", false); return; }
+
+    // Test scrittura “a secco”: POST dello stato corrente (non cambia nulla)
+    try {
+      const cur = await fetch(API).then(r=>r.json()).catch(()=>({notes:{}}));
+      const res = await fetch(API, {
+        method: "POST",
+        headers: { "Content-Type":"application/json", "Authorization": basic(u,p) },
+        body: JSON.stringify({ notes: cur.notes || {} })
+      });
+      if (res.ok) {
+        sessionStorage.setItem(AUTH_KEY, basic(u,p));   // 🔐 salva token solo per la sessione
+        setMsg("Login OK. Vai su FANTAMISTER per modificare.", true);
+      } else {
+        sessionStorage.removeItem(AUTH_KEY);
+        setMsg("Credenziali errate.", false);
+      }
+    } catch (e) {
+      setMsg("Errore di rete.", false);
+    }
+  };
+
+  logoutBtn.onclick = () => {
+    sessionStorage.removeItem(AUTH_KEY);
+    setMsg("Sei uscito.", null);
+  };
+  </script>
+</body>
+</html>
