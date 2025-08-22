@@ -446,8 +446,8 @@ function renderCards() {
 
 function openModal(id, label) {
   currentId = id;
-  const full = notes[id] || "—";
-  modalTitle.textContent = "Nota – " + label;
+  const full = notes[id] || " ";
+  modalTitle.textContent = label;
 
   if (isLogged()) {
     viewFull.style.display = "none";
