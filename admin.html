@@ -53,7 +53,17 @@
 
   const AUTH_KEY = 'fantafinti_auth'; // token in sessione
 
-  function basic(u,p){ return "Basic " + btoa(`${u}:${p}`); }
+    
+function basic(user, pass) {
+  return 'Basic ' + base64utf8(`${user}:${pass}`);
+}
+function base64utf8(str) {
+  const bytes = new TextEncoder().encode(str);
+  let binary = '';
+  for (const b of bytes) binary += String.fromCharCode(b);
+  return btoa(binary);
+}
+
 
   function setMsg(text, ok=null){
     msg.textContent = text;
