@@ -233,7 +233,7 @@
   display:none; flex-direction:column; gap:8px;
 }
 .note-modal textarea{
-  width:100%; min-height:40vh; padding:10px; border-radius:8px; border:1px solid #ccc; font-size:1em;
+  width:95%; min-height:40vh; padding:10px; border-radius:8px; border:1px solid #ccc; font-size:1em; background:#3399ff; color:#fff
 }
 .note-modal .row{ display:flex; gap:8px; justify-content:flex-end; margin-top:8px; }
 .note-modal .close{ background:#eee; border:0; border-radius:8px; padding:8px 12px; cursor:pointer; }
@@ -349,7 +349,7 @@
 <!-- Modal Nota -->
 <div id="noteBackdrop" class="note-modal-backdrop" aria-hidden="true">
   <div class="note-modal" role="dialog" aria-modal="true">
-    <h3 id="noteTitle">Nota</h3>
+    <h3 id="noteTitle"></h3>
     <div id="noteViewFull" class="viewer"></div>
     <div id="noteEditWrap" class="editor">
       <textarea id="noteTextarea" placeholder="Scrivi/modifica la nota…"></textarea>
