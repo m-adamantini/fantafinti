@@ -37,6 +37,25 @@
       color: #0e5be0;
     }
 
+     .admin-btn {
+  margin-left: auto;        /* lo spinge a destra */
+  background: #0080ff;      /* colore sfondo */
+  color: #003;
+  font-size: 1.4em;
+  padding: 6px 12px;
+  border-radius: 8px;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.3s;
+}
+
+.admin-btn:hover {
+  background: #e6b800;
+}
+
+
     body {
       margin: 0;
       padding: 0 20px;
@@ -91,6 +110,16 @@
     margin: 10px;
     font-size: 1.2em;
   }
+    
+  .admin-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    margin-left: 0;
+    padding: 4px 8px;
+    font-size: 1.2em;
+  }
+
 
   .shop-banner {
       margin-top: 180px; /* spazio per l'header fisso */
@@ -115,6 +144,7 @@
         <a href="fantamister.html">FANTAMISTER</a>
         <a href="shop.html">SHOP</a>
       </nav>
+      <a href="admin.html" class="admin-btn" title="Area Admin">⚙️</a>
     </div>
   </header>
 
