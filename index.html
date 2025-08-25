@@ -40,6 +40,24 @@
   color: #ffcc00;
 }
 
+.admin-btn {
+  margin-left: auto;        /* lo spinge a destra */
+  background: #0080ff;      /* colore sfondo */
+  color: #003;
+  font-size: 1.4em;
+  padding: 6px 12px;
+  border-radius: 8px;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.3s;
+}
+
+.admin-btn:hover {
+  background: #e6b800;
+}
+
 
     body {
       margin: 0px;
@@ -153,14 +171,14 @@
 
 
 @media (max-width: 768px) {
-  header {
+  header {                  /* ← serve per flex-direction */
     flex-direction: column;
-    padding: 5px 0px;
+    padding: 5px 0;
   }
 
   .header-content {
     flex-direction: column;
-    gap: 00px;
+    gap: 0;
   }
 
   .header-logo {
@@ -174,8 +192,17 @@
   }
 
   .nav-links a {
-    margin: 15px;
-    font-size: 1.3em;
+    margin: 10px;
+    font-size: 1.2em;
+  }
+
+  .admin-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    margin-left: 0;
+    padding: 4px 8px;
+    font-size: 1.2em;
   }
 
       .coming-box {    
@@ -300,6 +327,7 @@
       <a href="fantamister.html">FANTAMISTER</a>
       <a href="shop.html">SHOP</a>
     </nav>
+      <a href="admin.html" class="admin-btn" title="Area Admin">⚙️</a>
   </div>
 </header>
 
